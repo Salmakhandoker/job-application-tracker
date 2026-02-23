@@ -6,6 +6,7 @@
     <title>Job Application Tracker</title>
    <link rel="stylesheet" href="style/style.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
      <h2 class="title">Job Application Tracker</h2>
@@ -18,13 +19,14 @@
       <h3 id="total">8</h3>
     </div>
     <div class="dash-card">
-      <p>Interview</p>
-      <h3 id="interviewCount">0</h3>
-    </div>
-    <div class="dash-card">
-      <p>Rejected</p>
-      <h3 id="rejectedCount">0</h3>
-    </div>
+  <p>Interview</p>
+  <h3 id="interviewCount">0</h3>
+</div>
+
+<div class="dash-card">
+  <p>Rejected</p>
+  <h3 id="rejectedCount">0</h3>
+</div>
   </div>
 
   <!-- Available Jobs Section -->
@@ -42,11 +44,14 @@
       <button onclick="changeTab('rejected')" id="rejectedTab">Rejected</button>
      
     </div>
+    </div> 
 
-    <div id="jobsContainer"></div>
+    <div id="jobsContainer">
+
+    </div>
  
-
-
 <script src="script.js"></script>
+
+
 </body>
 </html>

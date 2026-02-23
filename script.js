@@ -11,7 +11,7 @@ let jobs = [
     location:"Remote",
     type:"Full-time",
     salary:"$80,000",
-    description:"Build modern websites.",
+    description:"Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.",
     status:"all"},
   {id:2,
   company:"WebFlow Agency",
@@ -19,17 +19,18 @@ let jobs = [
    location:"USA",
     type:"Full-time",
     salary:"$90,000",
-    description:"Work with APIs.",
+    description:"Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.",
     status:"all"},
 
   {id:3,
-     company:"DataPro",
-      position:"Data Analyst",
+     company:"DataViz Solutions",
+      position:"Data Visualization Specialist",
        location:"Canada",
-        type:"Full-time",
-         salary:"$75,000",
-          description:"Analyze data trends.",
-           status:"all"},
+       type:"Full-time",
+      salary:"$75,000",
+      description:"Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.",
+
+      status:"all"},
 
 
   {id:4,
@@ -42,12 +43,12 @@ let jobs = [
         status:"all"},
 
   {id:5,
-     company:"SecureIT",
+     company:"Innovation Labs",
     position:"Security Engineer",
     location:"USA",
     type:"Full-time",
     salary:"$100,000",
-    description:"Maintain system security.",
+    description:"Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.",
     status:"all"},
 
   {id:6,
@@ -69,92 +70,93 @@ let jobs = [
     status:"all"},
 
   {id:8,
-     company:"AI Labs",
+     company:"TechCorp Industries",
       position:"ML Engineer",
        location:"USA",
       type:"Full-time",
       salary:"$120,000",
-       description:"Build AI models.",
+       description:"We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.",
        status:"all"}
     ];
+
+
+function getStatusText(status) {
+  if (status === "interview") return "INTERVIEW";
+  if (status === "rejected") return "REJECTED";
+  return "NOT APPLIED";
+}
 
 function renderJobs() {
 
   let container = document.getElementById("jobsContainer");
   container.innerHTML = "";
 
-  let filtered = jobs.filter(job => 
-    currentTab === "all" ? 
-    true : job.status === currentTab
+  let filtered = jobs.filter(job =>
+    currentTab === "all" || job.status === currentTab
   );
 
-  document.getElementById("jobCount").innerText = filtered.length + " Jobs";
+  document.getElementById("jobCount").innerText =
+    filtered.length + " Jobs";
 
   if(filtered.length === 0){
     container.innerHTML = `
-    
-  <div class="empty">
-    <div class="empty-icon">
-      <i class="fa-regular fa-file-lines"></i>
-    </div>
-    <h3>No jobs available</h3>
-    <p>Check back later for new opportunities</p>
-  </div>
-`;
-
-return;
+      <div class="empty">
+        <div class="empty-icon">
+          <i class="fa-regular fa-file-lines"></i>
+        </div>
+        <h3>No jobs available</h3>
+        <p>Check back later for new opportunities</p>
+      </div>
+    `;
+    updateDashboard();
+    return;
   }
- 
 
   filtered.forEach(job => {
     container.innerHTML += `
-      <div class="job-card">
-        <button class="delete-btn" onclick="deleteJob(${job.id})">
-  <i class="fa-solid fa-trash"></i>
-</button>
-        
-          <h4>${job.company}</h4>
-    <p><b>${job.position}</b></p>
-    <p>${job.location} • ${job.type} • ${job.salary}</p>
+     <div class="job-card">
 
-    <span class="status-badge ${job.status}">
-      ${getStatusText(job.status)}
-    </span>
+  <button class="delete-btn" onclick="deleteJob(${job.id})">
+    <i class="fa-solid fa-trash"></i>
+  </button>
 
-    <p>${job.description}</p>
+ <h4 class="company">${job.company}</h4>
 
-    <div class="buttons">
-      <button class="interview-btn" onclick="setStatus(${job.id}, 'interview')">
-        Interview
-      </button>
-      <button class="rejected-btn" onclick="setStatus(${job.id}, 'rejected')">
-        Rejected
-      </button>
-        </div>
-      </div>
+<p class="position">${job.position}</p>
+
+<p>${job.location} • ${job.type} • ${job.salary}</p>
+
+<span class="status-badge ${job.status}">
+  ${getStatusText(job.status)}
+</span>
+
+<p>${job.description}</p>
+  <div class="buttons">
+    <button class="interview-btn ${job.status === 'interview' ? 'active' : ''}"
+      onclick="setStatus(${job.id}, 'interview')">
+      INTERVIEW
+    </button>
+
+    <button class="rejected-btn ${job.status === 'rejected' ? 'active' : ''}"
+      onclick="setStatus(${job.id}, 'rejected')">
+      REJECTED
+    </button>
+  </div>
+
+</div>
     `;
   });
- function getStatusText(status) {
-  if (status === "interview") return "INTERVIEW";
-  if (status === "rejected") return "REJECTED";
-  return "NOT APPLIED";
-}
+
   updateDashboard();
 }
 
 function setStatus(id, status){
   let job = jobs.find(j => j.id === id);
 
-  if(job.status === status){
-    job.status = "all";
-  } else {
-    job.status = status;
-  }
+  job.status = job.status === status ? "all" : status;
 
   renderJobs();
 }
-
-
 
 function deleteJob(id){
   jobs = jobs.filter(job => job.id !== id);
@@ -182,4 +184,3 @@ function updateDashboard(){
 }
 
 renderJobs();
-

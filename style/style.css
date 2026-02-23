@@ -3,7 +3,7 @@
 
 
 body {
-  font-family: Arial;
+  font-family: 'Inter', sans-serif;
   background-color: #f3f4f6;
   padding: 30px;
 }
@@ -24,6 +24,13 @@ body {
   border-radius: 6px;
   width: 150px;
   box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  border: 1px solid #e5e7eb;
+}
+.job-card {
+  border: 1px solid #e5e7eb;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
 }
 
 .jobs-section {
@@ -52,20 +59,24 @@ body {
   color: white;
 }
 
-.job-card {
-  border: 1px solid #e5e7eb;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-}
 
-.job-card h4 {
+.dash-card h3 {
   margin: 0;
 }
 
-.job-card p {
+.dash-card p {
   margin: 5px 0;
   font-size: 14px;
+}
+.company {
+  font-weight: 600;   /* শুধু company bold */
+  font-size: 16px;
+}
+
+.position {
+  font-weight: 400;   /* normal text */
+  color: #666;
+  margin-top: 4px;
 }
 
 .buttons {
@@ -81,13 +92,13 @@ body {
 }
 
 .interview-btn {
-  background: #10b981;
-  color: white;
+  background: #d1fae5;
+  color: #065f46;
 }
 
 .rejected-btn {
-  background: #ef4444;
-  color: white;
+  background: #fee2e2;
+  color: #991b1b;
 }
 .delete-btn {
   float: right;
