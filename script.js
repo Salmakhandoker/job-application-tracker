@@ -25,8 +25,8 @@ let jobs = [
   {id:3,
      company:"DataViz Solutions",
       position:"Data Visualization Specialist",
-       location:"Canada",
-       type:"Full-time",
+      location:"Canada",
+      type:"Full-time",
       salary:"$75,000",
       description:"Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.",
 
@@ -39,7 +39,7 @@ let jobs = [
     location:"UK",
     type:"Contract",
     salary:"$65,000",
-    description:"Design app interfaces.",
+    description:"Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.",
     status:"all"},
 
   {id:5,
