@@ -69,12 +69,12 @@ body {
   font-size: 14px;
 }
 .company {
-  font-weight: 600;   /* শুধু company bold */
+  font-weight: 600;   
   font-size: 16px;
 }
 
 .position {
-  font-weight: 400;   /* normal text */
+  font-weight: 400;   
   color: #666;
   margin-top: 4px;
 }
