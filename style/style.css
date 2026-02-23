@@ -1,5 +1,7 @@
 
 
+
+
 body {
   font-family: Arial;
   background-color: #f3f4f6;
@@ -87,20 +89,57 @@ body {
   background: #ef4444;
   color: white;
 }
-
 .delete-btn {
   float: right;
-  background: rgb(177, 176, 176);
-  color: white;
-  padding: 4px 8px;
+  background: transparent;
+  color: rgb(157, 153, 153);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
 }
-
+.delete-btn:hover {
+  transform: scale(1.2);
+}
 .empty {
   text-align: center;
-  padding: 40px;
-  color: gray;
+  padding: 60px 20px;
+  color: #6b7280;
 }
 
+.empty-icon {
+  margin-bottom: 15px;
+}
+
+.empty-icon i {
+  font-size: 70px;
+  color: #2563eb;
+}
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+/* Default - NOT APPLIED */
+.status-badge.all {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* Interview */
+.status-badge.interview {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* Rejected */
+.status-badge.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
 /* Responsive */
 @media (max-width: 600px) {
   .dashboard {

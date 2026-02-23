@@ -1,19 +1,21 @@
 
 
+
+
 let currentTab = "all";
 
 let jobs = [
   {id:1,
-    company:"TechNova",
-     position:"Frontend Developer", 
+    company:"Mobile First Corp",
+     position:"React Native Developer", 
     location:"Remote",
     type:"Full-time",
     salary:"$80,000",
     description:"Build modern websites.",
     status:"all"},
   {id:2,
-  company:"CloudSoft",
-   position:"Backend Developer",
+  company:"WebFlow Agency",
+   position:"Web Designer & Developer",
    location:"USA",
     type:"Full-time",
     salary:"$90,000",
@@ -90,32 +92,53 @@ function renderJobs() {
 
   if(filtered.length === 0){
     container.innerHTML = `
-      <div class="empty">
-        <h3>No jobs available</h3>
-        <p>Please check back later.</p>
-      </div>
-    `;
-    return;
+    
+  <div class="empty">
+    <div class="empty-icon">
+      <i class="fa-regular fa-file-lines"></i>
+    </div>
+    <h3>No jobs available</h3>
+    <p>Check back later for new opportunities</p>
+  </div>
+`;
+
+return;
   }
+ 
 
   filtered.forEach(job => {
     container.innerHTML += `
       <div class="job-card">
-        <button class="delete-btn" onclick="deleteJob(${job.id})">Delete</button>
+        <button class="delete-btn" onclick="deleteJob(${job.id})">
+  <i class="fa-solid fa-trash"></i>
+</button>
         
-        <h4>${job.company}</h4>
-        <p><b>${job.position}</b></p>
-        <p>${job.location} . ${job.type}</p>
-        <p>${job.salary}</p>
-        <p>${job.description}</p>
-        <div class="buttons">
-          <button class="interview-btn" onclick="setStatus(${job.id}, 'interview')">Interview</button>
-          <button class="rejected-btn" onclick="setStatus(${job.id}, 'rejected')">Rejected</button>
+          <h4>${job.company}</h4>
+    <p><b>${job.position}</b></p>
+    <p>${job.location} • ${job.type} • ${job.salary}</p>
+
+    <span class="status-badge ${job.status}">
+      ${getStatusText(job.status)}
+    </span>
+
+    <p>${job.description}</p>
+
+    <div class="buttons">
+      <button class="interview-btn" onclick="setStatus(${job.id}, 'interview')">
+        Interview
+      </button>
+      <button class="rejected-btn" onclick="setStatus(${job.id}, 'rejected')">
+        Rejected
+      </button>
         </div>
       </div>
     `;
   });
-
+ function getStatusText(status) {
+  if (status === "interview") return "INTERVIEW";
+  if (status === "rejected") return "REJECTED";
+  return "NOT APPLIED";
+}
   updateDashboard();
 }
 
@@ -130,6 +153,8 @@ function setStatus(id, status){
 
   renderJobs();
 }
+
+
 
 function deleteJob(id){
   jobs = jobs.filter(job => job.id !== id);
@@ -157,3 +182,4 @@ function updateDashboard(){
 }
 
 renderJobs();
+
