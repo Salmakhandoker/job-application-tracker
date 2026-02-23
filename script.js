@@ -36,11 +36,11 @@ let jobs = [
   {id:4,
     company:"DesignHub",
      position:"UI Designer",
-      location:"UK",
-      type:"Contract",
-      salary:"$65,000",
-       description:"Design app interfaces.",
-        status:"all"},
+    location:"UK",
+    type:"Contract",
+    salary:"$65,000",
+    description:"Design app interfaces.",
+    status:"all"},
 
   {id:5,
      company:"Innovation Labs",
@@ -61,7 +61,7 @@ let jobs = [
     status:"all"},
 
   {id:7,
-     company:"NextGen",
+    company:"NextGen",
     position:"DevOps Engineer",
     location:"Germany",
     type:"Full-time",
@@ -75,7 +75,7 @@ let jobs = [
        location:"USA",
       type:"Full-time",
       salary:"$120,000",
-       description:"We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.",
+      description:"We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.",
        status:"all"}
     ];
 
